@@ -7,9 +7,12 @@ import {Alert} from 'react-native'
  */
 
 const TOASP_POSITION = 100
-
+let toast = null
 export function $warn(text = '警告', duration = 1500) {
-    Toast.show(text, {
+    if (toast !== null) {
+        Toast.hide(toast)
+    }
+    toast = Toast.show(text, {
         // duration: Toast.durations.LONG,
         position: TOASP_POSITION,
         shadow: true,
