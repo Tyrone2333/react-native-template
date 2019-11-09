@@ -35,52 +35,6 @@ export function $warn(text = '警告', duration = 1500) {
     })
 }
 
-export function $error(text = '错误', duration = 1500) {
-    Toast.show(text, {
-        // duration: Toast.durations.LONG,
-        position: TOASP_POSITION,
-        shadow: true,
-        animation: true,
-        hideOnPress: true,
-        delay: 0,
-        onShow: () => {
-            // calls on toast\`s appear animation start
-        },
-        onShown: () => {
-            // calls on toast\`s appear animation end.
-        },
-        onHide: () => {
-            // calls on toast\`s hide animation start.
-        },
-        onHidden: () => {
-            // calls on toast\`s hide animation end.
-        },
-    })
-}
-
-export function $success(text = 'success', duration = 1500) {
-    Toast.show(text, {
-        // duration: Toast.durations.LONG,
-        position: TOASP_POSITION,
-        shadow: true,
-        animation: true,
-        hideOnPress: true,
-        delay: 0,
-        onShow: () => {
-            // calls on toast\`s appear animation start
-        },
-        onShown: () => {
-            // calls on toast\`s appear animation end.
-        },
-        onHide: () => {
-            // calls on toast\`s hide animation start.
-        },
-        onHidden: () => {
-            // calls on toast\`s hide animation end.
-        },
-    })
-}
-
 export function $confirm(text = '警告', title = '警告') {
     return new Promise((resolve, reject) => {
         Alert.alert(title, text, [
@@ -107,7 +61,6 @@ if (identifyDebugDevelopmentEnvironment()) {
     }
 }
 // window.log = log;
-export {log}
 
 // 任意图片 140*140: https://placeimg.com/140/140/any
 // 生成图片 宽*高/背景/前景.png/&text=文本: https://dummyimage.com/600x400/ccc/000.png&text=文本
@@ -122,3 +75,6 @@ export const defaultAvatar =
     'https://tse3-mm.cn.bing.net/th?id=OIP.QNGmLsUJkqUpgMbYBMpPqQAAAA&w=212&h=212&c=7&o=5&dpr=1.25&pid=1.7'
 global.defaultProductBanner =
     'https://i.loli.net/2019/07/31/5d4148eee243824369.png'
+let $error = $warn,
+    $success = $warn
+export {log, $error, $success}
