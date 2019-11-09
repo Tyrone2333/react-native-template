@@ -20,6 +20,7 @@ import {
     Stack,
     Lightbox,
 } from 'react-native-router-flux'
+import CardStackStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator'
 
 import CustomNavBar from './CustomNavBar'
 import TransparentNavBar from './TransparentNavBar'
@@ -66,7 +67,11 @@ const Route = () => (
         />
 
         <Router>
-            <Stack key="root" titleStyle={{alignSelf: 'center'}}>
+            <Modal
+                transitionConfig={() => ({
+                    screenInterpolator:
+                        CardStackStyleInterpolator.forHorizontal,
+                })}>
                 <Tabs
                     hideNavBar
                     key={'tab'}
@@ -96,7 +101,7 @@ const Route = () => (
                     component={TTTTTTTest}
                     navBar={CustomNavBar}
                 />
-            </Stack>
+            </Modal>
         </Router>
     </SafeAreaView>
 )

@@ -15,7 +15,7 @@ export default class Home extends Component {
         Actions.jump('test')
     }
     apiTest() {
-        log('apiTest')
+        log('apiTesting')
         getUser()
             .then(res => {
                 log(res)
