@@ -6,6 +6,7 @@ import {
     View,
     Image,
     SafeAreaView,
+    BackHandler,
 } from 'react-native'
 import {
     Scene,
@@ -66,7 +67,7 @@ const Route = () => (
             }}
         />
 
-        <Router>
+        <Router sceneStyle={{backgroundColor: '#f8f8f8'}}>
             <Modal
                 transitionConfig={() => ({
                     screenInterpolator:
