@@ -7,10 +7,12 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "clean": "cd ./android && gradlew clean",
-    "release": "cd android && ./gradlew assembleRelease",
+    "open-release-folder": "start android\\app\\build\\outputs\\apk\\release",
+    "release": "cd android && ./gradlew assembleRelease && npm run open-release-folder",
     "release-test": "react-native run-android --variant=release",
     "pod-install": "cd ios && pod install",
     "test": "jest",
+    "git-push-master": "git push origin master",
     "git-push": "git push origin --all",
     "eslint-fix": "eslint . --fix"
   },
