@@ -50,6 +50,24 @@ h5 的文件: E:\cunshu\public\h5\src\assets\img
 android:networkSecurityConfig="@xml/network_security_config"
 `
 
+### 在 Android 上支持 GIF 和 WebP 格式图片
+默认情况下 Android 是不支持 GIF 和 WebP 格式的。你需要在android/app/build.gradle文件中根据需要手动添加以下模块：
+```
+dependencies {
+  // 如果你需要支持Android4.0(API level 14)之前的版本
+  implementation 'com.facebook.fresco:animated-base-support:1.3.0'
+
+  // 如果你需要支持GIF动图
+  implementation 'com.facebook.fresco:animated-gif:2.0.0'
+
+  // 如果你需要支持WebP格式，包括WebP动图
+  implementation 'com.facebook.fresco:animated-webp:2.1.0'
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
+
+  // 如果只需要支持WebP格式而不需要动图
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
+}
+```
 
 # License
 MIT
