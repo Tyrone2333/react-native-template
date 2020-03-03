@@ -8,8 +8,16 @@ import {Actions} from 'react-native-router-flux'
 import {getUser} from '../../../api/api'
 
 @inject(['appState']) // 注入对应的store
+@inject(['userStore']) // 注入对应的store
 @observer // 监听当前组件
 export default class Home extends Component {
+    componentDidMount(): void {
+        this.props.userStore.setUserInfo({
+            aa: 'bb',
+        })
+        console.log(this.props.userStore)
+    }
+
     toA() {
         console.log(11111)
         Actions.jump('test')

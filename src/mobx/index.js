@@ -1,4 +1,5 @@
 import {observable, action} from 'mobx'
+import {userStore} from './userStore'
 
 class AppState {
     @observable num = 1234
@@ -13,4 +14,4 @@ class AppState {
 
 const appState = new AppState()
 
-export default {appState}
+export default {appState, userStore}

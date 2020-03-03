@@ -1,12 +1,5 @@
-/*
- * @Author: lfz
- * @Date:   2017-08-18 18:00:01
- * @Last Modified by:   Administrator
- * @Last Modified time: 2018-07-23 14:36:05
- */
-
 import Storage from 'react-native-storage'
-import {AsyncStorage} from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 var storage = new Storage({
     // 最大容量，默认值1000条数据循环存储
@@ -34,22 +27,5 @@ var storage = new Storage({
 
 global.storage = storage
 
-//扫描二维码的uid
-var qrcode_uid = ''
-global.qrcode_uid = qrcode_uid
-
-//首页的弹窗广告,只每次打开app才弹一次
-var show_index_ad = true
-global.show_index_ad = show_index_ad
-
-//扫描二维码以后，点击的是 '1点击免费体验' 还是'2立即参与'
-var click_btn = ''
-global.click_btn = click_btn
-
-//新手指南对应的链接
-var guide_url = ''
-global.guide_url = guide_url
-
-//要不要微信登录，用于ios审核
-var hide_wxlogin = false
-global.hide_wxlogin = hide_wxlogin
+// 其实不必要导出,但编辑器不认识 global.storage = storage 会报红
+export {storage}

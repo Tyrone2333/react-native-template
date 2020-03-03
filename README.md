@@ -4,6 +4,16 @@
 
 # Install
 
+# 路由 & 状态
+路由
+https://github.com/aksonov/react-native-router-flux/blob/master/docs/API.md
+
+状态
+https://segmentfault.com/a/1190000014165693
+
+mobx-react,v6与hoc冲突
+https://github.com/mobxjs/mobx-react/issues/690
+
 # 关于打包
 初始化项目: react-native init cy[projectname]
 
@@ -68,6 +78,16 @@ dependencies {
   implementation 'com.facebook.fresco:webpsupport:2.0.0'
 }
 ```
+
+### 在 FlatList/ScrollView 中 margin 不生效,重叠了怎么办?
+给 FlatList/ScrollView 组件添加
+```react-native
+    contentContainerStyle={{paddingBottom:xxx}}
+```
+
+### mobx 中的数据不能响应
+检查是否有给组件添加 `@observer` ,用于渲染 mobx 数据的下级组件同样需要添加 `@observer` 
+
 
 # License
 MIT
