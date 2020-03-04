@@ -72,9 +72,9 @@ const Route = () => (
             sceneStyle={{backgroundColor: '#f8f8f8'}}
             backAndroidHandler={() => {
                 if (
-                    Actions.currentScene != '_Home' &&
-                    Actions.currentScene != '_Mine' &&
-                    Actions.currentScene != 'Login'
+                    Actions.currentScene !== '_Home' &&
+                    Actions.currentScene !== '_Mine' &&
+                    Actions.currentScene !== 'Login'
                 ) {
                     return false
                 } else {
@@ -95,12 +95,12 @@ const Route = () => (
                     screenInterpolator:
                         CardStackStyleInterpolator.forHorizontal,
                 })}>
-                {/*<Scene*/}
-                {/*    key="TakePhoto"*/}
-                {/*    title="TakePhoto"*/}
-                {/*    component={TakePhoto}*/}
-                {/*    navBar={CustomNavBar}*/}
-                {/*/>*/}
+                <Scene
+                    key="TakePhoto"
+                    title="TakePhoto"
+                    component={TakePhoto}
+                    navBar={CustomNavBar}
+                />
                 <Tabs
                     hideNavBar
                     key={'tab'}

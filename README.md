@@ -46,6 +46,32 @@ h5 的文件: E:\cunshu\public\h5\src\assets\img
 ```
 打出的包名为 `这里填项目名_v1.0.0_20191109-221253.apk`
 
+# 插件集成
+### 图片选择,拍照
+按照文档配置,添加权限
+
+https://github.com/syanbo/react-native-syan-image-picker
+
+可能需要修改 `minSdkVersion` 16 => 17
+
+IOS 权限 项目目录->Info.plist->增加
+```
+	<key>NSCameraUsageDescription</key>
+	<string>需要访问相机</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>我们需要通过您的地理位置信息获取您周边的相关数据</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>请求保存图片到相册</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>请允许访问相册以选取照片</string>
+```
+### 安卓和 IOS 都能用的 ActionSheet
+无需重新打包 
+https://github.com/gaoxiaosong/react-native-general-actionsheet
+
+<img src="https://github.com/gaoxiaosong/react-native-general-actionsheet/raw/master/resource/iOS-2-P.png" height="400px">
+
+
 # 常见问题
 ### Android 9 无法联网
 在res下新建一个xml目录 创建名为network_security_config.xml 文件 ，该文件内容如下：

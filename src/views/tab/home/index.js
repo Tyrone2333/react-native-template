@@ -10,6 +10,7 @@ import Divider from '../../../components/Divider/Divider'
 import {$confirm, $warn} from '../../../utils/globalFunc'
 import XButton from '../../../components/XButton/XButton'
 import Wait from '../../../components/Wait'
+import {px} from '../../../style/util/config'
 
 @inject(['appState']) // 注入对应的store
 @inject(['userStore']) // 注入对应的store
@@ -23,7 +24,7 @@ export default class Home extends Component {
     }
     componentDidMount(): void {
         this.props.userStore.setUserInfo({
-            aa: 'bb',
+            username: 'en20',
         })
         console.log(this.props.userStore)
     }
