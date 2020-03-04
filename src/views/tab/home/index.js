@@ -8,11 +8,19 @@ import {Actions} from 'react-native-router-flux'
 import {getUser} from '../../../api/api'
 import Divider from '../../../components/Divider/Divider'
 import {$confirm, $warn} from '../../../utils/globalFunc'
+import XButton from '../../../components/XButton/XButton'
+import Wait from '../../../components/Wait'
 
 @inject(['appState']) // 注入对应的store
 @inject(['userStore']) // 注入对应的store
 @observer // 监听当前组件
 export default class Home extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            // wait: true,
+        }
+    }
     componentDidMount(): void {
         this.props.userStore.setUserInfo({
             aa: 'bb',
@@ -25,7 +33,8 @@ export default class Home extends Component {
         Actions.jump('test')
     }
     apiTest() {
-        $warn('apiTesting')
+        this.setState({wait: true})
+
         getUser()
             .then(res => {
                 log(res)
@@ -33,11 +42,16 @@ export default class Home extends Component {
             .catch(error => {
                 console.log(error)
             })
+            .finally(() => {
+                this.setState({wait: false})
+            })
     }
 
     render() {
         return (
             <Fragment>
+                {this.state.wait && <Wait />}
+
                 <Text>我是首页{this.props.appState.num}</Text>
                 <Text>yoooooooo</Text>
                 <Button
@@ -48,11 +62,11 @@ export default class Home extends Component {
 
                 <Divider text={'分割线'} />
                 <View>
-                    <Button
+                    <XButton
                         onPress={() => $warn('$warn')}
                         title="$warn('$warn')"
                     />
-                    <Button
+                    <XButton
                         onPress={() =>
                             $confirm().then(res => {
                                 $warn('点击了确认')

@@ -1,10 +1,13 @@
+/**
+ * Created by en20 on 2019/7/29.
+ *
+ * 这个页面的函数都会挂载到全局,如果 eslint 报 not defined 只需在页面引入即可
+ */
+
 import Toast from 'react-native-root-toast'
 import {Alert, NativeModules} from 'react-native'
 // 引入存储工具
 import './storage'
-/**
- * Created by en20 on 2019/7/29.
- */
 
 const TOASP_POSITION = 100
 let toast = null
@@ -64,7 +67,9 @@ export const createId = (length = 6) => {
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     var charactersLength = characters.length
     for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength))
+        result += characters.charAt(
+            Math.floor(Math.random() * charactersLength),
+        )
     }
     return result
 }

@@ -27,8 +27,6 @@ class CustomStarExample extends Component {
                         alignItems: 'center',
                     }}>
                     <Text>ttttttttttttt</Text>
-
-
                 </View>
             </View>
         )

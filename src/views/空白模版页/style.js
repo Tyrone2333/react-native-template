@@ -6,11 +6,11 @@ import {px, themeColor} from '../../../style/util/config.js'
 import {StyleSheet} from 'react-native'
 
 const styles = StyleSheet.create({
-  pageWrapper: {
-    width: '100%',
-    flex: 1,
-    backgroundColor: '#F6F8FB',
-  },
+    pageWrapper: {
+        width: '100%',
+        flex: 1,
+        backgroundColor: '#F6F8FB',
+    },
 })
 
 export default styles

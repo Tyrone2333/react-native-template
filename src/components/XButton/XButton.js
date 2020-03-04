@@ -33,6 +33,7 @@ export default class XButton extends Component {
     static defaultProps = {
         activeOpacity: 0.8,
         isView: false,
+        title: '',
     }
 
     componentDidMount(): void {}
