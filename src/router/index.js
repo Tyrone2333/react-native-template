@@ -28,6 +28,7 @@ import TransparentNavBar from './TransparentNavBar'
 import ImgNavBar from './ImgNavBar'
 
 import TTTTTTTest from '../views/TTTTTTTest'
+import TakePhoto from '../views/TakePhoto'
 
 import Home from '../views/tab/home'
 import Mine from '../views/tab/Mine'
@@ -67,12 +68,39 @@ const Route = () => (
             }}
         />
 
-        <Router sceneStyle={{backgroundColor: '#f8f8f8'}}>
+        <Router
+            sceneStyle={{backgroundColor: '#f8f8f8'}}
+            backAndroidHandler={() => {
+                if (
+                    Actions.currentScene != '_Home' &&
+                    Actions.currentScene != '_Mine' &&
+                    Actions.currentScene != 'Login'
+                ) {
+                    return false
+                } else {
+                    if (
+                        this.lastBackPress &&
+                        this.lastBackPress + 2000 > Date.now()
+                    ) {
+                        BackHandler.exitApp()
+                        return false
+                    }
+                    this.lastBackPress = Date.now()
+                    $warn('再点一次退出')
+                    return true
+                }
+            }}>
             <Modal
                 transitionConfig={() => ({
                     screenInterpolator:
                         CardStackStyleInterpolator.forHorizontal,
                 })}>
+                {/*<Scene*/}
+                {/*    key="TakePhoto"*/}
+                {/*    title="TakePhoto"*/}
+                {/*    component={TakePhoto}*/}
+                {/*    navBar={CustomNavBar}*/}
+                {/*/>*/}
                 <Tabs
                     hideNavBar
                     key={'tab'}
@@ -82,14 +110,14 @@ const Route = () => (
                     safeAreaInset={{bottom: 'never'}}>
                     <Scene
                         hideNavBar
-                        key="home"
+                        key="Home"
                         tabBarLabel="首页"
                         icon={TabBarIcon}
                         component={Home}
                     />
                     <Scene
                         hideNavBar
-                        key="user"
+                        key="Mine"
                         tabBarLabel="我的"
                         icon={TabBarIcon}
                         component={Mine}
