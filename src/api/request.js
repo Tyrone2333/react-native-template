@@ -38,20 +38,11 @@ export function _post(params, props) {
                 console.log('我提交的', params)
                 console.log(url + ' 接口返回:', data)
 
-                // 突然哪天就变成字符串  ﾍ(;´Д｀ﾍ)
+                // 根据项目实际自行更改状态 code,突然哪天就变成字符串  ﾍ(;´Д｀ﾍ)
                 if (data.status === 2000) {
                     // 只传 data,无需 msg 等无关内容
                     return resolve(data.data)
                 } else {
-                    // if (data.msg === '该账号已在其他终端登陆'
-                    //     || data.msg === '您还未登陆,请重新登陆'
-                    //     || data.msg === '请先登录'
-                    //     || data.msg === '登录超时请重新登录'
-                    // ) {
-                    //     // 传入 Actions.currentScene,可以跳转,但没必要
-                    //     Actions.jump('RegisterAndLogin');
-                    // }
-
                     // 常见状态码处理
                     switch (data.status) {
                         case 401:

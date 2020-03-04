@@ -38,8 +38,8 @@ export function $warn(text = '警告', duration = 1500) {
 export function $confirm(text = '警告', title = '提示') {
     return new Promise((resolve, reject) => {
         Alert.alert(title, text, [
-            {text: '取消', onPress: () => reject(), style: 'cancel'},
-            {text: '确定', onPress: () => resolve()},
+            {text: '取消', onPress: reject, style: 'cancel'},
+            {text: '确定', onPress: resolve},
         ])
     })
 }
